@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 تولدت مبارک عزیزم 🎉</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #e74c3c;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: scale(0);
+            animation: cardAppear 1s ease-out forwards;
+        }
+
+        @keyframes cardAppear {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .heart-icon {
+            font-size: 60px;
+            color: #e74c3c;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .door {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            border: 4px solid #654321;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            transform-origin: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .door:hover {
+            transform: scale(1.05);
+        }
+
+        .door.open {
+            transform: perspective(1000px) rotateY(-90deg);
+        }
+
+        .door-handle {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            border-radius: 50%;
+            border: 2px solid #B8860B;
+            transform: translateY(-50%);
+        }
+
+        .door-knob {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            width: 25px;
+            height: 25px;
+            background: #FFD700;
+            border-radius: 50%;
+            border: 3px solid #B8860B;
+            transform: translateY(-50%);
+        }
+
+        .message {
+            display: none;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: messageSlide 1s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bible-verse {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border-right: 5px solid #8e44ad;
+            padding: 20px;
+        }
+
+        .love-message {
+            line-height: 2;
+            color: #2c3e50;
+        }
+
+        .click-text {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .birthday-card {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+
+            .door {
+                width: 150px;
+                height: 225px;
+            }
+
+            .heart-icon {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- قلب‌های شناور -->
+    <div id="floatingHearts" class="floating-hearts"></div>
+
+    <!-- کارت اصلی -->
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="birthday-card p-4 p-md-5">
+            <div class="text-center mb-4">
+                <div class="heart-icon">💝</div>
+            </div>
+
+            <h1 class="text-center mb-3 fw-bold text-dark">
+                <span class="fs-1">تولدت مبارک عزیزم</span>
+            </h1>
+
+            <p id="subtitleText" class="text-center mb-3 text-muted fs-5">
+                روی در کلیک کن تا پیام من را ببینی
+            </p>
+
+            <!-- در -->
+            <div class="text-center mb-3">
+                <div id="door" class="door mx-auto">
+                    <div class="door-handle"></div>
+                    <div class="door-knob"></div>
+                </div>
+            </div>
+
+            <p id="clickText" class="text-center text-muted mb-3 click-text">
+                👆 روی در کلیک کن 👆
+            </p>
+
+            <!-- پیام (مخفی) -->
+            <div id="message" class="message p-4 p-md-5" style="display: none;">
+                <h2 class="text-center mb-3 fw-bold text-danger">
+                    🎂 تولدت مبارک عشق من 🎂
+                </h2>
+
+                <!-- پیام عاشقانه اصلی -->
+                <div class="love-message mb-4 p-3 bg-white bg-opacity-75 rounded-3">
+                    <p class="text-center fs-6">
+                        وقتی صبح روز تولدت چشم‌هایم را باز می‌کنم و به یاد می‌آورم که در چنین روزی تو به دنیا آمدی،
+                        وجودم از شادمانی و شکرگزاری سرشار می‌شود. هر بار که می‌خواهم احساس عمیق عشقم را به تو بگویم،
+                        واژه‌ها کم می‌آورند. گاهی دلم پر از درد شیرینی می‌شود، نه دردی از اندوه، بلکه از ناتوانی در بیان
+                        آن‌چه در قلبم می‌جوشد. چون می‌دانم هیچ چیز در این جهان نیست که بتواند بزرگی عشق من به تو را به
+                        تصویر بکشد.
+                        <br><br>
+                        اما آرامشی دارم، زیرا یقین دارم روح‌القدس بهتر از هر کلامی، قلب مرا به تو آشکار می‌کند. دعا
+                        می‌کنم همان خدایی که قادر مطلق است، عشق بی‌پایانم را به تو نشان دهد، عشقی که هیچ مرز و انتهایی
+                        نمی‌شناسد.
+                        <br><br>
+                        روز تولد تو برای من، زیباترین روز زمین است؛ روزی بزرگ‌تر، باشکوه‌تر و شیرین‌تر از روز تولد خودم
+                        و هر انسانی دیگر. چون در آن روز، خداوند هدیه‌ای آسمانی به من داد؛ تو را، مریم جانم.
+                        <br><br>
+                        ای محبوب من، ای همسر عزیزم، اگر هزار بار دیگر به دنیا بیایم، باز هم تنها تو را خواهم خواست، چون
+                        بودن با تو، معنای زندگی و طعم واقعی عشق است.
+                    </p>
+                </div>
+
+                <!-- آیه زیبا -->
+                <div class="bible-verse mb-4">
+                    <p class="text-center fst-italic text-purple fw-medium fs-6">
+                        "مـرا مثل خاتـم بر دلت و مثـل نگیـن بر بازویت بگذار، زیرا که محبت مثل موت زور آور است و غیرت مثل
+                        هاویه ستم کیش می‌باشد. شعله‌هایش شعله‌های آتش و لَهیب یهوه است."
+                    </p>
+                    <p class="text-center mt-3 fw-bold text-purple fs-5">
+                        - عزل عزلها ۸: ۶
+                    </p>
+                </div>
+
+                <!-- امضای عاشقانه -->
+                <div class="text-center">
+                    <div class="fs-1 mb-3">💕</div>
+                    <p class="text-danger fw-bold fs-4">
+                        همیشه دوستت دارم<br>
+                        مریم جانم
+                    </p>
+                    <div class="fs-1 mt-3">💕</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ایجاد قلب‌های شناور
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+            const heartSymbols = ['💖', '💝', '💕', '💗', '💓', '💘'];
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, 400);
+        }
+
+        // باز کردن در
+        document.getElementById('door').addEventListener('click', function () {
+            this.classList.add('open');
+
+            setTimeout(() => {
+                document.getElementById('message').style.display = 'block';
+                // حذف متن "روی در کلیک کن تا پیام من را ببینی" و فاصله آن
+                document.getElementById('subtitleText').style.display = 'none';
+                document.getElementById('subtitleText').style.margin = '0';
+                // حذف متن "روی در کلیک کن" و فاصله آن
+                document.getElementById('clickText').style.display = 'none';
+                document.getElementById('clickText').style.margin = '0';
+                // حذف فاصله در
+                document.getElementById('door').parentElement.style.margin = '0';
+                // اسکرول به پیام
+                document.getElementById('message').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 800);
+        });
+
+        // شروع انیمیشن قلب‌های شناور
+        createFloatingHearts();
+
+        // افکت کلیک
+        document.addEventListener('click', function (e) {
+            if (e.target.id !== 'door') {
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple';
+                ripple.style.left = e.clientX + 'px';
+                ripple.style.top = e.clientY + 'px';
+
+                document.body.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+        });
+    </script>
+</body>
+
+</html>
